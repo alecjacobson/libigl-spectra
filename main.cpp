@@ -110,6 +110,7 @@ namespace spectra
     Eigen::MatrixXd S_mat = Eigen::MatrixXd(S.cwiseAbs());
     //sort these according to S.abs()
     Eigen::VectorXi I;
+#warning "igl::eigs uses opposite sort order"
     igl::sort( Eigen::VectorXd(S.cwiseAbs()), 1, true, S, I);
     igl::slice(Eigen::MatrixXd(U),I,2,U);
     return true;
